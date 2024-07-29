@@ -32,7 +32,7 @@ class Button:
     def getColor(self) -> pygame.Color:
         if self.pressed:
             temp = self.c
-            return (0, 0, 0)
+            return (0, 0, 0) # how darken the color????
         return self.c
     
     def press(self) -> None:
@@ -45,7 +45,7 @@ class Button:
 
 class Container: # for jokers or tarot cards
     
-    def __init__(self, x: int, y: int, w: int, h: int, type: str, amount: int):
+    def __init__(self, x: float, y: float, w: float, h: float, type: str, amount: int):
         self.x = x
         self.y = y
         self.w = w
@@ -60,17 +60,19 @@ class Container: # for jokers or tarot cards
     def sell() -> None:
         pass
 
-class InfoBox:
+class InfoBox: # hands, money, discards, ante, rount
 
-    def __init__(self, x: int, y: int, w: int, h: int, message: int = ""):
+    def __init__(self, x: float, y: float, w: float, h: float, message: str = ""):
         self.x = x
         self.y = y
         self.w = w
         self.h = h
         self.message = message
 
-    def getInner() -> pygame.Rect:
-        pass
+    def getInner(self) -> pygame.Rect:
+        if len(self.message) == 0:
+            return pygame.Rect(self.x+10, self.y+10, self.w-20, self.h-20)
+        return pygame.Rect(self.x+40, self.y+10, self.w-20, self.h-20)
 
-    def getOutline() -> pygame.Rect:
-        pass
+    def getOutline(self) -> pygame.Rect:
+        return pygame.Rect(self.x, self.y, self.w, self.h)
