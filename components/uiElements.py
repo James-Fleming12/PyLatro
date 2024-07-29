@@ -1,4 +1,5 @@
 import pygame
+from gameElements import Joker, TarotCard
 
 class Button:
     def __init__(self, name: str, 
@@ -16,6 +17,9 @@ class Button:
         self.c = color
         self.pressed = False
         self.command = command
+
+    def __str__(self) -> str:
+        return f"{self.name} ({self.x}, {self.y})"
 
     def getRender(self) -> pygame.Rect:
         if self.pressed:
@@ -38,3 +42,35 @@ class Button:
 
     def isHovered(self, pos: tuple[int, int]) -> bool:
         return pos[0] > self.x and pos[1] > self.y and pos[0] < self.x+self.w and pos[1] < self.y+self.h
+
+class Container: # for jokers or tarot cards
+    
+    def __init__(self, x: int, y: int, w: int, h: int, type: str, amount: int):
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.type = type
+        self.amount = amount
+        self.items = []
+    
+    def add() -> None:
+        pass
+
+    def sell() -> None:
+        pass
+
+class InfoBox:
+
+    def __init__(self, x: int, y: int, w: int, h: int, message: int = ""):
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.message = message
+
+    def getInner() -> pygame.Rect:
+        pass
+
+    def getOutline() -> pygame.Rect:
+        pass

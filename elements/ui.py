@@ -1,13 +1,17 @@
-from components.uiElements import Button
+from components.uiElements import *
 import pygame
 
-def getContainers() -> None:
-    pass
+def getInfoBoxes() -> list[InfoBox]:
+    return [
+
+    ]
+
+def getContainers() -> list[Container]:
+    return [
+        
+    ]
 
 def getGameButtons() -> list[Button]:
     return [
-        Button("Test", 10, 10, 50, 80, pygame.Color(255, 0, 0), 
-               "print('Test Pressed')"),
-        Button("Other", 10, 100, 50, 80, pygame.Color(255, 0, 0), 
-               "print('Other Pressed')"),
+        
     ]
