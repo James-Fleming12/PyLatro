@@ -1,6 +1,6 @@
 import pygame
 from components.uiElements import Button
-from elements.ui import getButtons
+from elements.ui import getGameButtons
 
 pygame.init()
 pygame.display.set_caption("PyLatro")
@@ -13,7 +13,7 @@ font = pygame.font.SysFont("monofetti", 20)
 mousepos: tuple
 mUp, mDown = False, False
 
-buttons: list[Button] = getButtons()
+buttons: list[Button] = getGameButtons()
 
 while running:
     for event in pygame.event.get():
