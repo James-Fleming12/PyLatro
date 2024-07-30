@@ -1,5 +1,5 @@
 import pygame
-from gameElements import Joker, TarotCard
+from components.gameElements import Joker, TarotCard
 
 class Button:
     def __init__(self, name: str, 
@@ -54,6 +54,9 @@ class Container: # for jokers or tarot cards
         self.amount = amount
         self.items = []
     
+    def getRender(self) -> pygame.Rect:
+        return pygame.Rect(self.x, self.y, self.w, self.h)
+
     def add() -> None:
         pass
 

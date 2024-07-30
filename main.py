@@ -1,6 +1,6 @@
 import pygame
-from components.uiElements import Button
-from elements.ui import getGameButtons
+from components.uiElements import *
+from elements.ui import *
 
 pygame.init()
 pygame.display.set_caption("PyLatro")
@@ -14,6 +14,7 @@ mousepos: tuple
 mUp, mDown = False, False
 
 buttons: list[Button] = getGameButtons()
+containers: list[Container] = getContainers()
 
 while running:
     for event in pygame.event.get():
@@ -24,7 +25,9 @@ while running:
 
     mDown = pygame.mouse.get_pressed()[0]
     mousepos = pygame.mouse.get_pos()
-    screen.fill("white")
+    screen.fill((255, 255, 255))
+
+    pygame.draw.rect(screen, "light gray", pygame.Rect(10, 10, 400, 800))
 
     for b in buttons:
         pygame.draw.rect(screen, "dark gray", b.getShadow())
@@ -37,6 +40,9 @@ while running:
                 b.press()
         if mUp and b.pressed:
             b.unpress()
+
+    for c in containers:
+        pygame.draw.rect(screen, "light gray", c.getRender())
 
     mUp = False
     pygame.display.flip()
